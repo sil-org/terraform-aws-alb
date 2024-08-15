@@ -14,8 +14,6 @@ This module is published in [Terraform Registry](https://registry.terraform.io/m
 
 ## Usage Example
 
-TODO: Update the following as a simple, brief representative sample of the module:
-
 ```hcl
 module "asg" {
   source = "silinternational/alb"
@@ -29,10 +27,3 @@ module "asg" {
   certificate_arn = data.aws_acm_certificate.name.arn
 }
 ```
-
-## Working Example
-
-TODO: Update or remove this section:
-
-A working [example](https://github.com/silinternational/terraform-module-name/tree/main/example) usage of this module is included in the source repository.
-
