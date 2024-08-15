@@ -1,25 +1,32 @@
-# Terraform module for ...
+# Terraform Module for Application Load Balancer
 
-This module ... 
+This module is used to create an application load balancer along with security
+groups for traffic and a default target group. It was previously published
+at https://github.com/silinternational/terraform-modules/aws/alb.
 
-TODO: Change the path in this link:
+## What this includes
 
-This module is published in [Terraform Registry](https://registry.terraform.io/modules/silinternational/module-name/provider-name/latest).
+- ALB named after `app_name` and `app_env`
+- ALB target group
+- HTTPS listener for ALB / Target Group
+
+This module is published in [Terraform Registry](https://registry.terraform.io/modules/silinternational/terraform-aws-alb/provider-name/latest).
 
 ## Usage Example
 
 TODO: Update the following as a simple, brief representative sample of the module:
 
 ```hcl
-module "this" {
-  source = "silinternational/module-name/aws"
+module "asg" {
+  source = "silinternational/alb"
   version = "0.1.0"
   
-  variable_name = "my variable value"
-}
-
-provider "aws" {
-  region = "us-east-1"
+  app_name        = var.app_name
+  app_env         = var.app_env
+  vpc_id          = module.vpc.id
+  security_groups = [module.vpc.vpc_default_sg_id,module.cloudflare-sg.id]
+  subnets         = [module.vpc.public_subnet_ids]
+  certificate_arn = data.aws_acm_certificate.name.arn
 }
 ```
 
