@@ -13,8 +13,8 @@ module "minimal" {
   app_name        = ""
   app_env         = ""
   vpc_id          = ""
-  security_groups = ""
-  subnets         = ""
+  security_groups = [""]
+  subnets         = [""]
   certificate_arn = ""
 }
 
@@ -24,13 +24,13 @@ module "full" {
   app_name                  = ""
   app_env                   = ""
   vpc_id                    = ""
-  security_groups           = ""
-  subnets                   = ""
+  security_groups           = [""]
+  subnets                   = [""]
   certificate_arn           = ""
   port                      = ""
   protocol                  = ""
   alb_name                  = ""
-  internal                  = ""
+  internal                  = true
   ssl_policy                = ""
   tg_name                   = ""
   health_check_interval     = ""
@@ -43,7 +43,7 @@ module "full" {
   health_check_status_codes = ""
   idle_timeout              = ""
   load_balancer_type        = ""
-  enable_ipv6               = ""
+  enable_ipv6               = true
 }
 
 output "id" {
