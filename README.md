@@ -10,7 +10,7 @@ at https://github.com/silinternational/terraform-modules/aws/alb.
 - ALB target group
 - HTTPS listener for ALB / Target Group
 
-This module is published in [Terraform Registry](https://registry.terraform.io/modules/silinternational/terraform-aws-alb/provider-name/latest).
+This module is published in [Terraform Registry](https://registry.terraform.io/modules/silinternational/alb/aws/latest).
 
 ## Usage Example
 
