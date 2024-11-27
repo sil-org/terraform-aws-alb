@@ -8,7 +8,7 @@ resource "aws_alb" "alb" {
   subnets            = var.subnets
   load_balancer_type = var.load_balancer_type
   idle_timeout       = var.idle_timeout
-  ip_address_type    = var.enable_ipv6 ? (var.disable_public_ipv4 ? "dualstack" : "dualstack-without-public-ipv4") : "ipv4"
+  ip_address_type    = var.enable_ipv6 ? (var.disable_public_ipv4 ? "dualstack-without-public-ipv4" : "dualstack") : "ipv4"
 
   tags = {
     Name     = coalesce(var.alb_name, "alb-${var.app_name}-${var.app_env}")
