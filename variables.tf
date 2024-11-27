@@ -101,7 +101,13 @@ variable "load_balancer_type" {
 }
 
 variable "enable_ipv6" {
-  description = "Set to `true` to enable IPv6. Changes the ALB `ip_address_type` to `\"dualstack\"`."
+  description = "Set to `true` to enable IPv6"
+  type        = bool
+  default     = false
+}
+
+variable "disable_public_ipv4" {
+  description = "false: use public IPv4; true: if enable_ipv6 is true, ip_address_type will be \"dualstack-without-public-ipv4\", otherwise, \"dualstack\""
   type        = bool
   default     = false
 }
