@@ -2,7 +2,7 @@
 
 This module is used to create an application load balancer along with security
 groups for traffic and a default target group. It was previously published
-at https://github.com/silinternational/terraform-modules/aws/alb.
+at https://github.com/sil-org/terraform-modules/aws/alb.
 
 ## What this includes
 
@@ -10,13 +10,13 @@ at https://github.com/silinternational/terraform-modules/aws/alb.
 - ALB target group
 - HTTPS listener for ALB / Target Group
 
-This module is published in [Terraform Registry](https://registry.terraform.io/modules/silinternational/alb/aws/latest).
+This module is published in [Terraform Registry](https://registry.terraform.io/modules/sil-org/alb/aws/latest).
 
 ## Usage Example
 
 ```hcl
 module "asg" {
-  source = "silinternational/alb"
+  source = "sil-org/alb"
   version = "0.1.0"
   
   app_name        = var.app_name
