@@ -25,15 +25,15 @@ module "full" {
   internal                  = true
   ssl_policy                = ""
   tg_name                   = ""
-  health_check_interval     = ""
+  health_check_interval     = 30
   health_check_path         = ""
   health_check_port         = ""
   health_check_protocol     = ""
-  health_check_timeout      = ""
-  healthy_threshold         = ""
-  unhealthy_threshold       = ""
+  health_check_timeout      = 5
+  healthy_threshold         = 5
+  unhealthy_threshold       = 2
   health_check_status_codes = ""
-  idle_timeout              = ""
+  idle_timeout              = 60
   load_balancer_type        = ""
   enable_ipv6               = true
 }
