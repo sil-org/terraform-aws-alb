@@ -13,29 +13,30 @@ module "minimal" {
 module "full" {
   source = "../"
 
-  app_name                  = ""
-  app_env                   = ""
-  vpc_id                    = ""
-  security_groups           = [""]
-  subnets                   = [""]
-  certificate_arn           = ""
-  port                      = ""
-  protocol                  = ""
-  alb_name                  = ""
-  internal                  = true
-  ssl_policy                = ""
-  tg_name                   = ""
-  health_check_interval     = 30
-  health_check_path         = ""
-  health_check_port         = ""
-  health_check_protocol     = ""
-  health_check_timeout      = 5
-  healthy_threshold         = 5
-  unhealthy_threshold       = 2
-  health_check_status_codes = ""
-  idle_timeout              = 60
-  load_balancer_type        = ""
-  enable_ipv6               = true
+  app_name                     = ""
+  app_env                      = ""
+  vpc_id                       = ""
+  security_groups              = [""]
+  subnets                      = [""]
+  certificate_arn              = ""
+  port                         = ""
+  protocol                     = ""
+  alb_name                     = ""
+  internal                     = true
+  ssl_policy                   = ""
+  tg_name                      = ""
+  health_check_interval        = 30
+  health_check_path            = ""
+  health_check_port            = ""
+  health_check_protocol        = ""
+  health_check_timeout         = 5
+  healthy_threshold            = 5
+  unhealthy_threshold          = 2
+  health_check_status_codes    = ""
+  idle_timeout                 = 60
+  load_balancer_type           = ""
+  enable_ipv6                  = true
+  access_log_retention_in_days = 60
 }
 
 output "id" {
@@ -73,7 +74,7 @@ terraform {
   required_providers {
     aws = {
       source  = "hashicorp/aws"
-      version = "~> 4.0"
+      version = "5.88"
     }
   }
 }
