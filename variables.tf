@@ -129,3 +129,8 @@ variable "disable_public_ipv4" {
   type        = bool
   default     = false
 }
+
+variable "access_log_retention_in_days" {
+  type    = number
+  default = 60
+}
