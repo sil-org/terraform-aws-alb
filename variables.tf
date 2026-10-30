@@ -131,6 +131,7 @@ variable "disable_public_ipv4" {
 }
 
 variable "access_log_retention_in_days" {
-  type    = number
-  default = 60
+  description = "Number of days to retain access logs in Cloudwatch Logs. Set to 0 for infinite retention."
+  type        = number
+  default     = 60
 }
