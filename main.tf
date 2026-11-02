@@ -57,26 +57,34 @@ resource "aws_alb_listener" "https" {
 # logging
 
 resource "aws_cloudwatch_log_group" "alb_access" {
+  count = var.access_log_retention_in_days == 0 ? 0 : 1
+
   name              = "/aws/alb/${aws_alb.alb.name}/access"
   retention_in_days = var.access_log_retention_in_days
 }
 
 resource "aws_cloudwatch_log_delivery_source" "alb_access" {
+  count = var.access_log_retention_in_days == 0 ? 0 : 1
+
   name         = "${aws_alb.alb.name}-access"
   log_type     = "ALB_ACCESS_LOGS"
   resource_arn = aws_alb.alb.arn
 }
 
 resource "aws_cloudwatch_log_delivery_destination" "alb_access" {
+  count = var.access_log_retention_in_days == 0 ? 0 : 1
+
   name          = "${aws_alb.alb.name}-access-cwl"
   output_format = "json"
 
   delivery_destination_configuration {
-    destination_resource_arn = aws_cloudwatch_log_group.alb_access.arn
+    destination_resource_arn = one(aws_cloudwatch_log_group.alb_access[*].arn)
   }
 }
 
 resource "aws_cloudwatch_log_delivery" "alb_access" {
-  delivery_source_name     = aws_cloudwatch_log_delivery_source.alb_access.name
-  delivery_destination_arn = aws_cloudwatch_log_delivery_destination.alb_access.arn
+  count = var.access_log_retention_in_days == 0 ? 0 : 1
+
+  delivery_source_name     = one(aws_cloudwatch_log_delivery_source.alb_access[*].name)
+  delivery_destination_arn = one(aws_cloudwatch_log_delivery_destination.alb_access[*].arn)
 }
