@@ -51,7 +51,7 @@ variable "internal" {
 
 variable "ssl_policy" {
   type    = string
-  default = "ELBSecurityPolicy-TLS13-1-2-2021-06"
+  default = "ELBSecurityPolicy-TLS13-1-2-Res-PQ-2025-09"
 }
 
 variable "tg_name" {
